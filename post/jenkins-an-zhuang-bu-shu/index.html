@@ -1,0 +1,251 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jenkins安装部署 | Gridea</title>
+<link rel="shortcut icon" href="https://ljy-life.github.io/favicon.ico?v=1598002010113">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://ljy-life.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Jenkins安装部署 | Gridea - Atom Feed" href="https://ljy-life.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="jenkins和maven文件下载地址，普通下载时间过长：
+链接: https://pan.baidu.com/s/1MU_crk6ubCwCxhxn_CxRNQ 提取码: hq6g
+####1.安装openjdk 1.8
+yum -y i..." />
+    <meta name="keywords" content="jenkins" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://ljy-life.github.io">
+  <img class="avatar" src="https://ljy-life.github.io/images/avatar.png?v=1598002010113" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Jenkins安装部署
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-08-21
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://ljy-life.github.io/tag/S79x2WxfN/" class="post-tag">
+                  # jenkins
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>jenkins和maven文件下载地址，普通下载时间过长：</p>
+<p>链接: https://pan.baidu.com/s/1MU_crk6ubCwCxhxn_CxRNQ 提取码: hq6g</p>
+<p>####1.安装openjdk 1.8<br>
+yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel</p>
+<p>####2.安装maven环境（百度网盘中下载或者官网下载）<br>
+官网地址：http://mirrors.hust.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz</p>
+<pre><code>[root@slave1 ~]# tar -xf apache-maven-3.6.3-bin.tar.gz
+[root@slave1 ~]# mv apache-maven-3.6.3  /usr/local/
+[root@slave1 ~]# cd /usr/local/
+[root@slave1 ~]# ln -sv apache-maven-3.6.3/ maven
+[root@slave1 ~]# vim /etc/profile.d/maven.sh
+[root@slave1 ~]# cat /etc/profile.d/maven.sh
+export PATH=$PATH:/usr/local/maven/bin
+[root@slave1 ~]# source /etc/profile.d/maven.sh
+</code></pre>
+<p>####3.安装jenkins</p>
+<pre><code>[root@slave1 ~]# wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+[root@slave1 ~]# rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+[root@slave1 ~]# yum clean all
+[root@slave1 ~]# yum makecache
+[root@slave1 ~]# yum install jenkins 
+#如果安装时间过长，则使用网盘里的rpm包进行rpm安装
+#'rpm -ivh jenkins-2.204.5-1.1.noarch.rpm'
+
+[root@slave1 ~]# systemctl enable jenkins
+
+#如果8080端口已经被占用，或者需要修改为其他访问端口，比如8008
+#sed -i s/8080/8008/g /etc/sysconfig/jenkins
+[root@slave1 ~]# systemctl start jenkins
+</code></pre>
+<p>####4.访问浏览器8008；</p>
+<pre><code>#默认密码在/var/lib/jenkins/secrets/initialAdminPassword
+#选择自定义安装插件，选择no，就进入jenkins
+</code></pre>
+<p>####5.修改jenkins插件的源，复制替换。</p>
+<pre><code>[root@iZ2zefucqy81qzjxw07e9bZ ~]# cat /var/lib/jenkins/hudson.model.UpdateCenter.xml
+&lt;?xml version='1.1' encoding='UTF-8'?&gt;
+&lt;sites&gt;
+  &lt;site&gt;
+    &lt;id&gt;default&lt;/id&gt;
+    &lt;url&gt;http://mirror.esuni.jp/jenkins/updates/update-center.json&lt;/url&gt;
+  &lt;/site&gt;
+&lt;/sites&gt;
+</code></pre>
+<p>####6.创建一个基础用户</p>
+<pre><code>按照要求填写信息即可；
+</code></pre>
+<p>####7.安装基础插件</p>
+<pre><code>ssh
+Localization: Chinese (Simplified)
+NodeJS
+Safe Restart
+git
+Token Macro
+Build Timeout
+bouncycastle API Plugin
+Command Agent Launcher Plugin
+LDAP Plugin
+PAM Authentication plugin
+OWASP Markup Formatter
+Workspace Cleanup Plugin
+#安装完所有的插件后，需要重启jenkins才会生效。勾选安装完重启，或者服务器systemctl restart jenkins都可以
+</code></pre>
+<p>####8.全局工具配置</p>
+<p>系统管理 --&gt; 全局工具配置  --&gt;</p>
+<pre><code>JDK安装
+别名：jdk1.8
+JAVA_HOME: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64
+
+maven安装
+name：maven
+MAVEN_HOME：/usr/local/maven
+
+NodeJS安装
+别名：node_10
+勾选自动安装
+
+选择保存
+</code></pre>
+<p>参考：<a href="https://blog.51cto.com/liujingyu/category1.html" title="刘景宇的博客">https://blog.51cto.com/liujingyu/category1.html</a></p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://ljy-life.github.io/post/hello-gridea/">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://ljy-life.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
