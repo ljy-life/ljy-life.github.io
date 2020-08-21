@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ljy-life.github.io</id>
-    <title>Gridea</title>
-    <updated>2020-08-21T09:27:57.696Z</updated>
+    <title>刘景宇的博客</title>
+    <updated>2020-08-21T09:30:32.144Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ljy-life.github.io"/>
     <link rel="self" href="https://ljy-life.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>要想成为高手，首先要自己动手</subtitle>
     <logo>https://ljy-life.github.io/images/avatar.png</logo>
     <icon>https://ljy-life.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, 刘景宇的博客</rights>
     <entry>
         <title type="html"><![CDATA[Jenkins安装部署]]></title>
-        <id>https://ljy-life.github.io/post/jenkins-an-zhuang-bu-shu/</id>
-        <link href="https://ljy-life.github.io/post/jenkins-an-zhuang-bu-shu/">
+        <id>https://ljy-life.github.io/jenkins-an-zhuang-bu-shu/</id>
+        <link href="https://ljy-life.github.io/jenkins-an-zhuang-bu-shu/">
         </link>
         <updated>2020-08-21T09:24:29.000Z</updated>
         <content type="html"><![CDATA[<p>jenkins和maven文件下载地址，普通下载时间过长：</p>
@@ -100,8 +100,8 @@ NodeJS安装
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://ljy-life.github.io/post/hello-gridea/</id>
-        <link href="https://ljy-life.github.io/post/hello-gridea/">
+        <id>https://ljy-life.github.io/hello-gridea/</id>
+        <link href="https://ljy-life.github.io/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
