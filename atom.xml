@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ljy-life.github.io</id>
     <title>余生的Gridea博客</title>
-    <updated>2020-09-07T06:12:23.533Z</updated>
+    <updated>2020-09-07T06:18:35.952Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ljy-life.github.io"/>
     <link rel="self" href="https://ljy-life.github.io/atom.xml"/>
@@ -16,7 +16,8 @@
         <link href="https://ljy-life.github.io/JWpZXCq4z/">
         </link>
         <updated>2020-09-07T05:48:48.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1修改jenkins插件的源复制替换">1.修改jenkins插件的源，复制替换。</h2>
+        <content type="html"><![CDATA[<p>版本：Jenkins 2.255</p>
+<h2 id="1修改jenkins插件的源复制替换">1.修改jenkins插件的源，复制替换。</h2>
 <h3 id="1yum安装的位置更换">1）yum安装的位置更换</h3>
 <pre><code>[root@iZ2zefucqy81qzjxw07e9bZ ~]# cat /var/lib/jenkins/hudson.model.UpdateCenter.xml
 &lt;?xml version='1.1' encoding='UTF-8'?&gt;
