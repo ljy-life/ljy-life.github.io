@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>余生的Gridea博客</title>
 <meta name="description" content="逆水行舟" />
-<link rel="shortcut icon" href="https://ljy-life.github.io/favicon.ico?v=1599458982998">
+<link rel="shortcut icon" href="https://ljy-life.github.io/favicon.ico?v=1599459140635">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://ljy-life.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://ljy-life.github.io/images/avatar.png?v=1599458982998" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://ljy-life.github.io/images/avatar.png?v=1599459140635" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">余生的Gridea博客</h1>
       </div>
@@ -39,9 +39,10 @@
 <li><a href="#1%E4%BF%AE%E6%94%B9jenkins%E6%8F%92%E4%BB%B6%E7%9A%84%E6%BA%90%E5%A4%8D%E5%88%B6%E6%9B%BF%E6%8D%A2">1.修改jenkins插件的源，复制替换。</a>
 <ul>
 <li><a href="#1yum%E5%AE%89%E8%A3%85%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%9B%B4%E6%8D%A2">1）yum安装的位置更换</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F%E6%9B%B4%E6%94%B9%E5%90%8E%E4%BC%9A%E5%8F%91%E7%8E%B0%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BE%9D%E6%97%A7%E4%B8%8D%E4%BC%9A%E7%94%9F%E6%95%88%E4%BC%9A%E6%8A%A5%E9%94%99%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF%E6%98%BE%E7%A4%BAdownload%E5%9C%B0%E5%9D%80%E4%BE%9D%E6%97%A7%E4%B8%BAjenkins%E5%AE%98%E6%96%B9%E6%BA%90%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BF%99%E5%B0%B1%E6%B6%89%E5%8F%8A%E5%88%B0%E4%BA%86%E6%B8%85%E5%8D%8E%E9%95%9C%E5%83%8F%E7%9A%84%E6%BA%90%E7%9A%84%E5%86%85%E5%AE%B9%E4%BE%9D%E6%97%A7%E6%98%AF%E4%B9%8B%E5%89%8Djenkins%E5%AE%98%E6%96%B9%E6%BA%90%E7%9A%84%E5%86%85%E5%AE%B9jenkis%E6%9C%AC%E5%9C%B0%E8%BF%98%E6%9C%89%E6%A0%A1%E9%AA%8C%E6%BA%90%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E8%A6%81%E4%BF%AE%E6%94%B9jenkins%E6%A0%A1%E9%AA%8C%E6%BA%90defalutjson%E7%9A%84%E5%86%85%E5%AE%B9%E4%B8%A4%E4%B8%AA%E4%B8%80%E8%87%B4%E6%B8%85%E5%8D%8E%E6%BA%90%E7%9A%84%E9%95%9C%E5%83%8F%E5%9C%B0%E5%9D%80%E5%8D%B3%E5%8F%AF">注意：更改后会发现下载源依旧不会生效会报错，日志信息显示download地址依旧为jenkins官方源的地址，这就涉及到了清华镜像的源的内容依旧是之前jenkins官方源的内容，jenkis本地还有校验源，所以我们要修改jenkins校验源defalut.json的内容，两个一致清华源的镜像地址即可。</a></li>
+<li><a href="#2war%E5%8C%85%E5%AE%89%E8%A3%85">2）war包安装</a></li>
 </ul>
 </li>
-<li><a href="#%E6%B3%A8%E6%84%8F%E6%9B%B4%E6%94%B9%E5%90%8E%E4%BC%9A%E5%8F%91%E7%8E%B0%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BE%9D%E6%97%A7%E4%B8%8D%E4%BC%9A%E7%94%9F%E6%95%88%E4%BC%9A%E6%8A%A5%E9%94%99%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF%E6%98%BE%E7%A4%BAdownload%E5%9C%B0%E5%9D%80%E4%BE%9D%E6%97%A7%E4%B8%BAjenkins%E5%AE%98%E6%96%B9%E6%BA%90%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BF%99%E5%B0%B1%E6%B6%89%E5%8F%8A%E5%88%B0%E4%BA%86%E6%B8%85%E5%8D%8E%E9%95%9C%E5%83%8F%E7%9A%84%E6%BA%90%E7%9A%84%E5%86%85%E5%AE%B9%E4%BE%9D%E6%97%A7%E6%98%AF%E4%B9%8B%E5%89%8Djenkins%E5%AE%98%E6%96%B9%E6%BA%90%E7%9A%84%E5%86%85%E5%AE%B9jenkis%E6%9C%AC%E5%9C%B0%E8%BF%98%E6%9C%89%E6%A0%A1%E9%AA%8C%E6%BA%90%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E8%A6%81%E4%BF%AE%E6%94%B9jenkins%E6%A0%A1%E9%AA%8C%E6%BA%90defalutjson%E7%9A%84%E5%86%85%E5%AE%B9%E4%B8%A4%E4%B8%AA%E4%B8%80%E8%87%B4%E6%B8%85%E5%8D%8E%E6%BA%90%E7%9A%84%E9%95%9C%E5%83%8F%E5%9C%B0%E5%9D%80%E5%8D%B3%E5%8F%AF">注意：更改后会发现下载源依旧不会生效会报错，日志信息显示download地址依旧为jenkins官方源的地址，这就涉及到了清华镜像的源的内容依旧是之前jenkins官方源的内容，jenkis本地还有校验源，所以我们要修改jenkins校验源defalut.json的内容，两个一致清华源的镜像地址即可。</a></li>
 </ul>
 </li>
 </ul>
@@ -110,10 +111,11 @@
 <p>也可以通过jenkins的插件管理里进行更改，更改后重启jenkins<br>
 http://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<br>
 <img src="https://ljy-life.github.io/post-images/1599458158120.jpg" alt="" loading="lazy"></p>
-<h2 id="注意更改后会发现下载源依旧不会生效会报错日志信息显示download地址依旧为jenkins官方源的地址这就涉及到了清华镜像的源的内容依旧是之前jenkins官方源的内容jenkis本地还有校验源所以我们要修改jenkins校验源defalutjson的内容两个一致清华源的镜像地址即可">注意：更改后会发现下载源依旧不会生效会报错，日志信息显示download地址依旧为jenkins官方源的地址，这就涉及到了清华镜像的源的内容依旧是之前jenkins官方源的内容，jenkis本地还有校验源，所以我们要修改jenkins校验源defalut.json的内容，两个一致清华源的镜像地址即可。</h2>
+<h3 id="注意更改后会发现下载源依旧不会生效会报错日志信息显示download地址依旧为jenkins官方源的地址这就涉及到了清华镜像的源的内容依旧是之前jenkins官方源的内容jenkis本地还有校验源所以我们要修改jenkins校验源defalutjson的内容两个一致清华源的镜像地址即可">注意：更改后会发现下载源依旧不会生效会报错，日志信息显示download地址依旧为jenkins官方源的地址，这就涉及到了清华镜像的源的内容依旧是之前jenkins官方源的内容，jenkis本地还有校验源，所以我们要修改jenkins校验源defalut.json的内容，两个一致清华源的镜像地址即可。</h3>
 <p>默认安装路径：/var/lib/jenkins/updates/default.json</p>
 <pre><code>sed -i 's/https:\/\/updates.jenkins.io\/download/http:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' /var/lib/jenkins/updates/default.json &amp;&amp; sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' /var/lib/jenkins/updates/default.json
 </code></pre>
+<h3 id="2war包安装">2）war包安装</h3>
 <p>war包安装（默认yum安装就是war包启动，需要修改下这个文件/etc/init.d/jenkins）的需要在java启动项关闭安全检查，更改后记得重启jenkins。<br>
 java -Dhudson.model.DownloadService.noSignatureCheck=true -jar jenkins.war</p>
 
