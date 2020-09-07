@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ljy-life.github.io</id>
-    <title>刘景宇的博客</title>
-    <updated>2020-09-07T05:45:56.564Z</updated>
+    <title>余生的Gridea博客</title>
+    <updated>2020-09-07T05:47:59.794Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ljy-life.github.io"/>
     <link rel="self" href="https://ljy-life.github.io/atom.xml"/>
     <subtitle>逆水行舟</subtitle>
     <logo>https://ljy-life.github.io/images/avatar.png</logo>
     <icon>https://ljy-life.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 刘景宇的博客</rights>
+    <rights>All rights reserved 2020, 余生的Gridea博客</rights>
     <entry>
         <title type="html"><![CDATA[Jenkins安装部署]]></title>
         <id>https://ljy-life.github.io/jenkins-an-zhuang-bu-shu/</id>
