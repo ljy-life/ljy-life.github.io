@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ljy-life.github.io</id>
     <title>余生的Gridea博客</title>
-    <updated>2020-09-07T05:47:59.794Z</updated>
+    <updated>2020-09-07T06:09:48.244Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ljy-life.github.io"/>
     <link rel="self" href="https://ljy-life.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://ljy-life.github.io/images/avatar.png</logo>
     <icon>https://ljy-life.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 余生的Gridea博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Jenkins更换清华插件源不生效的问题]]></title>
+        <id>https://ljy-life.github.io/JWpZXCq4z/</id>
+        <link href="https://ljy-life.github.io/JWpZXCq4z/">
+        </link>
+        <updated>2020-09-07T05:48:48.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1修改jenkins插件的源复制替换">1.修改jenkins插件的源，复制替换。</h2>
+<h3 id="1yum安装的位置更换">1）yum安装的位置更换</h3>
+<pre><code>[root@iZ2zefucqy81qzjxw07e9bZ ~]# cat /var/lib/jenkins/hudson.model.UpdateCenter.xml
+&lt;?xml version='1.1' encoding='UTF-8'?&gt;
+&lt;sites&gt;
+  &lt;site&gt;
+    &lt;id&gt;default&lt;/id&gt;
+    &lt;url&gt;http://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json&lt;/url&gt;
+  &lt;/site&gt;
+&lt;/sites&gt;
+</code></pre>
+<p>也可以通过jenkins的插件管理里进行更改，更改后重启jenkins<br>
+http://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<br>
+<img src="https://ljy-life.github.io/post-images/1599458158120.jpg" alt="" loading="lazy"></p>
+<h2 id="注意更改后会发现下载源依旧不会生效会报错日志信息显示download地址依旧为jenkins官方源的地址这就涉及到了清华镜像的源的内容依旧是之前jenkins官方源的内容jenkis本地还有校验源所以我们要修改jenkins校验源defalutjson的内容两个一致清华源的镜像地址即可">注意：更改后会发现下载源依旧不会生效会报错，日志信息显示download地址依旧为jenkins官方源的地址，这就涉及到了清华镜像的源的内容依旧是之前jenkins官方源的内容，jenkis本地还有校验源，所以我们要修改jenkins校验源defalut.json的内容，两个一致清华源的镜像地址即可。</h2>
+<p>默认安装路径：/var/lib/jenkins/updates/default.json</p>
+<pre><code>sed -i 's/https:\/\/updates.jenkins.io\/download/http:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' /var/lib/jenkins/updates/default.json &amp;&amp; sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' /var/lib/jenkins/updates/default.json
+</code></pre>
+<p>war包安装（默认yum安装就是war包启动，需要修改下这个文件/etc/init.d/jenkins）的需要在java启动项关闭安全检查，更改后记得重启jenkins。<br>
+java -Dhudson.model.DownloadService.noSignatureCheck=true -jar jenkins.war</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Jenkins安装部署]]></title>
         <id>https://ljy-life.github.io/jenkins-an-zhuang-bu-shu/</id>
